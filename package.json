@@ -1,0 +1,24 @@
+{
+  "name": "pre_entrega",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de productos - TechLab",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "api",
+    "fakestore",
+    "node"
+  ],
+  "author": "Enel Sotillo",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
