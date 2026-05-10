@@ -42,10 +42,10 @@ const ejecutarTienda = async () => {
         let cuerpo;
         
         try {
-            // Si el test envía un JSON, lo parseamos
+            // Si el test try catch dentro de otro un JSON, lo parseamos
             cuerpo = JSON.parse(rawData);
         } catch {
-            // Si el test envía texto plano (el error 'R'), lo asignamos al título
+            // Si el test envía texto plano, lo asignamos al título
             cuerpo = { title: rawData, price: 29.99, category: "men's clothing" };
         }
 
