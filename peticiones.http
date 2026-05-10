@@ -1,0 +1,34 @@
+### Variables Globales
+@url = https://fakestoreapi.com
+
+### GET: Obtener todos los productos
+GET {{url}}/products
+Content-Type: application/jso
+ 
+### GET: Un solo producto con el id 15
+GET {{url}}/products/15
+Content-Type: application/jso
+
+### POST: Crear un nuevo producto
+POST {{url}}/products
+Content-Type: application/json
+
+{
+    "title": "Enel - Nuevo Producto",
+    "price": 150.0,
+    "description": "Prueba desde REST Client",
+    "category": "electronics"
+}
+
+### PUT: Actualizar un producto id 15
+PUT {{url}}/products/15
+Content-Type: application/json
+
+{
+    "title": "Mause",
+    "price": 1500.0,
+    "category": "electronica"
+}
+
+### DELETE: Borrar un producto id 15
+DELETE {{url}}/products/15

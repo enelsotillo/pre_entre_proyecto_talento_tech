@@ -1,7 +1,6 @@
 // Proyecto de pre_entrega Alumno: Enel Sotillo
 // Creamos el array para process usando destructuring
 // [,, metodo, recursos, ...detalle] captura:
-// node index.js GET products/1 -> metodo="GET", recursos="products/1"
 const [,, metodo, recursos, ...detalle] = process.argv;
 
 // url de FAKE STORE
@@ -23,11 +22,13 @@ const ejecutarTienda = async () => {
         
         case 'GET':
             try {
+                //Terminal npm run start GET products
+                //Termianal npm run start GET products/15
                 const res = await fetch(`${URL_FAKESTORE}/${recursos}`);
                 const data = await res.json();
                 console.log("--- RESULTADO DE CONSULTA ---");
 
-                // Verificamos si data es un array (varios) o un objeto (uno solo)
+                // Verificamos si data es un array (varios) o un objeto
                 if (Array.isArray(data)) {
                     const dataReducida = data.map(p => ({
                         id: p.id,
@@ -47,9 +48,10 @@ const ejecutarTienda = async () => {
                 console.error("Error al obtener productos:", error.message);
             }
             break;
-
+            //Nuevo producto
         case 'POST':
             try {
+                //Terminar npm run start POST products T-Shirt-Rex 300 remeras
                 // Creamos el nuevo objeto usando Spread Operator
                 const nuevoProducto = { ...productoBase, title: "Nuevo Item Creado" };
 
@@ -59,16 +61,16 @@ const ejecutarTienda = async () => {
                     body: JSON.stringify(nuevoProducto)
                 });
                 const creado = await res.json();
-                console.log("--- PRODUCTO CREADO (POST) ---");
+                console.log("<--- PRODUCTO CREADO --->");
                 console.log(creado);
             } catch (error) {
                 console.error("Error al crear producto:", error.message);
             }
             break;
-
+            //Actualizar
         case 'PUT':
             try {
-                //Así utilizamos en terminal npm run start PUT products/1 title: Mouse, Price: 1500.00
+                //Terminal npm run start PUT products/1 title: Mouse, Price: 1500.00
                 // Actualizamos usando Spread para modificar solo una propiedad
                 const productoEditado = { ...productoBase, price: 999.99 };
 
@@ -78,28 +80,30 @@ const ejecutarTienda = async () => {
                     body: JSON.stringify(productoEditado)
                 });
                 const actualizado = await res.json();
-                console.log("--- PRODUCTO ACTUALIZADO (PUT) ---");
+                console.log("<--- PRODUCTO ACTUALIZADO --->");
                 console.log(actualizado);
             } catch (error) {
                 console.error("Error al actualizar:", error.message);
             }
             break;
-
+            //Eliminar un registro
         case 'DELETE':
             try {
+                //Terminal npm run start DELETE products/7
                 const res = await fetch(`${URL_FAKESTORE}/${recursos}`, {
                     method: 'DELETE'
                 });
                 const eliminado = await res.json();
-                console.log("--- PRODUCTO ELIMINADO (DELETE) ---");
-                console.log(eliminado);
-            } catch (error) {
-                console.error("Error al borrar:", error.message);
-            }
-            break;
+                //muestro el id y titulo del registro eliminado
+            console.log(`Producto ID: ${eliminado.id} | Titulo: ${eliminado.title} -----> ELIMINADO`);
+
+    } catch (error) {
+        console.error("Error al borrar el ID:", error.message);
+    }
+    break;
 
         default:
-            console.log("Comando no reconocido. Formato: GET|POST|PUT|DELETE productos/ID");
+            console.log("Comando no reconocido. Formato: GET|POST|PUT|DELETE products/ID");
     }
 };
 

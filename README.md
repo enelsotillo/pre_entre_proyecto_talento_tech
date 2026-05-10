@@ -1,15 +1,14 @@
 <di>
-    <h1>Proyecto de Pre-entregr</h1>
-    <h1>Curso Telent Tech </h1>
-    <h1>BackEnd con Express</h1>
+    <h1>Proyecto de Pre-entrega</h1>
+    <h1>Simulación virtual de los metodos GET, POST, PUT y  DELETE</h1>
+    <h1>Curso Talent Tech </h1>
+    <h1>BackEnd sin Express</h1>
         <section>
-        <h2>Crear Proycto</h2> 
+        <h2>Proyecto</h2> 
         <h3>Pasos</h3>
             <ul>
             <li>01 Crear Carpeta del Proyecto</li>
             <li>02 npm init -y</li>
-            <li>05 npm i nodemon -D</li>
-            <li>09 npm i dotenv</li>
             </ul>
         </section>
          <section>
@@ -43,5 +42,12 @@
             <li>7 git branch desarrollo</li>
             </ul>
         </section>
+        <section>
+        <h2>Testing de Prueba </h2>
+        <ul>Descargar o copiar repositorio de prueba</ul>
+        <li>https://github.com/JePaFe/Testing-Pre-Entrega-Back-End-Node-JS</li>
+        <li>Thunder Client o PostMan</li>
+        
+        <section>
 
 </di>
